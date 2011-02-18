@@ -6,7 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('django.views.generic.simple',    
-    (r'^$', 'direct_to_template',{'template':'index.html'}),
+    (r'^$', 'direct_to_template', {'template': 'index.html'}),
     (r'^subscription/', include('subscription.urls', namespace='subscription')),
     (r'^admin/', include(admin.site.urls)),
 )

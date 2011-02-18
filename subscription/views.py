@@ -15,12 +15,12 @@ def create(request):
 	form = SubscriptionForm(request.POST)
 	
 	if not form.is_valid():
-		context = RequestContext(request,{'form': form})
+		context = RequestContext(request, {'form': form})
 		return render_to_response('subscription/new.html', context)
 	
 	subscription = form.save()
-	send_mail_confirmation(subscription)
-	return HttpResponseRedirect(reverse('subscription:sucess', args=[subscription.pk]))
+#	send_mail_confirmation(subscription)
+	return HttpResponseRedirect(reverse('subscription:success', args=[subscription.pk]))
 
 def subscribe(request):
 	if request.method == 'POST':
@@ -31,7 +31,7 @@ def subscribe(request):
 def success(request, pk):
 	subscription = get_object_or_404(Subscription, pk=pk)
 	context = RequestContext(request,{'subscription': subscription})
-	return render_to_response('subscription/sucess.html', context)
+	return render_to_response('subscription/success.html', context)
 
 def send_mail_confirmation(subscription):
 	from django.core.email import send_email
