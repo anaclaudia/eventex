@@ -1,0 +1,40 @@
+body {
+      font-size: 16px;
+      background-color: #F4FADD;
+      font-family: 'Lucida Grande', Arial, Helvetica;
+      line-height: 30px;
+      letter-spacing: 2px;
+}
+    
+div.tamanho {
+      width: 70%;
+      margin: 0 auto; /* alinha no centro o div */
+}
+    
+div#header {
+      text-align: center;
+      padding-top: 20px;
+}
+    
+div#footer {
+      text-align: center;
+      padding-top: 20px;
+}
+    
+div#content {
+      text-align: justify;
+      padding-top: 20px;
+}
+    
+.stilo {
+      color: #444;
+}
+    
+span.stilo {
+      font-weight: bold; /* Estilo: Negrito, italico, etc */
+}
+    
+div#footer {
+      color: gray;
+      font-size: 14px;
+}
