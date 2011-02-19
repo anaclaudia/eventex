@@ -1,7 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
-from django shortcuts import render_to_response
-from django shortcuts import get_object_or_404
+from django shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from subscription.forms import SubscriptionForm
 from subscription.models import Subscription
@@ -19,7 +18,7 @@ def create(request):
 		return render_to_response('subscription/new.html', context)
 	
 	subscription = form.save()
-#	send_mail_confirmation(subscription)
+	send_mail_confirmation(subscription)
 	return HttpResponseRedirect(reverse('subscription:success', args=[subscription.pk]))
 
 def subscribe(request):
