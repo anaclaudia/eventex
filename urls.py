@@ -4,9 +4,9 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
-	(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'core.views.homepage', name='homepage'),
+urlpatterns = patterns('django.views.generic.simple',
+	(r'^$', 'direct_to_template', {'template':'index.html'}),
+    (r'^admin/', include(admin.site.urls)),
     (r'^subscription/', include('subscription.urls', namespace='subscription')),
     
 )

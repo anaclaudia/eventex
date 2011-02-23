@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-	<h1>Formul&aacute;rio de inscri&ccedil;&atilde;o</h1> 
+	<h1>Formulário de inscrição</h1>
+	{{ form.non_fileds_erros }} 
+	
 	<form action="." method="POST">
 		{% csrf_token %}
 		{{ form.as_p }}

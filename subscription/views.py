@@ -18,7 +18,7 @@ def create(request):
 		return render_to_response('subscription/new.html', context)
 	
 	subscription = form.save()
-	send_mail_confirmation(subscription)
+#	send_mail_confirmation(subscription)
 	return HttpResponseRedirect(reverse('subscription:success', args=[subscription.pk]))
 
 def subscribe(request):
@@ -32,11 +32,11 @@ def success(request, pk):
 	context = RequestContext(request,{'subscription': subscription})
 	return render_to_response('subscription/success.html', context)
 
-def send_mail_confirmation(subscription):
-	from django.core.email import send_email
-	send_email(
-		subject=u'Inscrição no eventex', 
-		message=u'Obrigado por se inscrever!!', 
-		from_email='contato@eventex.com.br', 
-		recipient_list=[subscription.email],
-	)
+#def send_mail_confirmation(subscription):
+#	from django.core.email import send_email
+#	send_email(
+#		subject=u'Inscrição no eventex', 
+#		message=u'Obrigado por se inscrever!!', 
+#		from_email='contato@eventex.com.br', 
+#		recipient_list=[subscription.email],
+#	)
