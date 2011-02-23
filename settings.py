@@ -1,49 +1,17 @@
-<<<<<<< HEAD
-# Django settings for eventex project.
-=======
 import os
 PROJECT_DIR = os.path.dirname(__file__)
->>>>>>> aula-2
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-<<<<<<< HEAD
-     ('Ana Claudia', 'ana@anaclaudia.net.br'),
 )
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'localhost'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_HOST_USER = ''
-EMAIL_PORT = 25
-
 MANAGERS = ADMINS
 
-import os
-PROJECT_DIR = os.path.realpath(os.path.dirname(__file__))
-
-=======
-    # ('Your Name', 'your_email@domain.com'),
-)
-
-MANAGERS = ADMINS
-
->>>>>>> aula-2
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(PROJECT_DIR, 'database.db'),
-<<<<<<< HEAD
-        'USER': '',                     
-        'PASSWORD': '',                 
-        'HOST': '',                 
-        'PORT': '',                
-    }
-}
-
-=======
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -53,7 +21,6 @@ DATABASES = {
 
 DEFAULT_FROM_EMAIL = 'contato@eventex.com'
 
->>>>>>> aula-2
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -92,11 +59,7 @@ MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = MEDIA_URL + 'admin/'
 
 # Make this unique, and don't share it with anybody.
-<<<<<<< HEAD
-SECRET_KEY = 'anncj%kn)^@aja@ts%4*vzvh5cs#=k2%*e_2royifmk)(dom04'
-=======
 SECRET_KEY = 'rclkre-&5sknt8@f65u!jp&1vwu(-_nobr0gj1oa_@c(q@#)nc'
->>>>>>> aula-2
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -135,7 +98,3 @@ INSTALLED_APPS = (
     'core',
     'subscription',
 )
-<<<<<<< HEAD
-
-=======
->>>>>>> aula-2

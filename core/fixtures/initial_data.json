@@ -9,21 +9,12 @@
             "is_active": true, 
             "is_superuser": true, 
             "is_staff": true, 
-<<<<<<< HEAD
-            "last_login": "2011-02-18 17:04:26", 
-            "groups": [], 
-            "user_permissions": [], 
-            "password": "sha1$ba283$5d18e9b910b6a59f093dc52f5896d5561050ad5b", 
-            "email": "ana@anaclaudia.net.br", 
-            "date_joined": "2011-02-18 17:04:26"
-=======
             "last_login": "2010-10-20 04:38:36", 
             "groups": [], 
             "user_permissions": [], 
             "password": "sha1$19ec4$d7c94eb3f3b5f092578e310091e01d7ca0db9711", 
-            "email": "admin@eventex.com", 
+            "email": "ana@anaclaudia.net.br", 
             "date_joined": "2010-10-20 04:38:36"
->>>>>>> aula-2
         }
     }
 ]
