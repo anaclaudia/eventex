@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 This file demonstrates two different styles of tests (one doctest and one
 unittest). These will both pass when you run "manage.py test".
@@ -21,3 +22,14 @@ Another way to test that 1 + 1 is equal to 2.
 True
 """}
 
+=======
+from django.test import TestCase
+from django.core.urlresolvers import reverse
+
+
+class HomepageUrlTest(TestCase):
+    def test_success_when_get_homepage(self):
+        response = self.client.get(reverse('homepage'))
+        self.assertEquals(200, response.status_code)
+        self.assertTemplateUsed(response, 'index.html')
+>>>>>>> aula-2
