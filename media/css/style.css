@@ -38,3 +38,8 @@ div#footer {
       color: gray;
       font-size: 14px;
 }
+
+p label{
+    width: 100px;
+    display: inline-block;
+}
