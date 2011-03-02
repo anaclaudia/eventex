@@ -1,18 +1,19 @@
-#! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-import os, sys
 import datetime
 from django.contrib import admin
 from django.utils.translation import ungettext
 from django.utils.translation import ugettext as _
 from subscription.models import Subscription
+from django.conf.urls.defaults import patterns, url
+from django.http import HttpResponse
+
 
 class SubscriptionAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone', 'created_at', 'subscribed_today')
     date_hierarchy = 'created_at'
     search_fields = ('name', 'cpf', 'email', 'phone', 'created_at')
-    list_filter = ('paid',)
+#   list_filter = ('paid',)
     
     actions = ['mark_as_paid']
 
@@ -31,5 +32,25 @@ class SubscriptionAdmin(admin.ModelAdmin):
         return obj.created_at.date() == datetime.date.today()
     subscribed_today.short_description = _('Inscrito hoje?')
     subscribed_today.boolean = True
+
+    def export_subscriptions(self, request):
+        subscriptions = self.model.objects.all()
+        rows = [','.join([s.name,s.email]) for s in subscriptions]
+
+        response = HttpResponse('\r\n'.join(rows))
+        response.mimetype = "text/csv"
+        response['Content-Disposition'] = 'attachment; filename=inscricoes.csv'
+
+        return response
+    
+    def get_urls(self):
+        original_urls = super(SubscriptionAdmin, self).get_urls()
+        extra_url = patterns('',
+            url(r'exportar-inscricoes/$',
+                self.admin_site.admin_view(self.export_subscriptions),
+                name='export_subscriptions')
+        )
+        return extra_url + original_urls
+
 
 admin.site.register(Subscription, SubscriptionAdmin)

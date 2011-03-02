@@ -9,7 +9,12 @@ from subscription.utils import send_subscription_email
 
 
 def new(request):
-    form = SubscriptionForm()
+    form = SubscriptionForm(initial={
+        'name': 'Entre com seu nome',
+        'cpf': 'Digitre o seu CPF sem pontos',
+        'email': 'Informe o seu email',
+        'phone':'31 3333-3333'
+        })
     context = RequestContext(request, {'form': form})
     return render_to_response('subscription/new.html', context)
 
@@ -19,11 +24,17 @@ def create(request):
     if not form.is_valid():
         context = RequestContext(request, {'form': form})
         return render_to_response('subscription/new.html', context)
+    
+    s = Subscription()
+    s.name = form.cleaned_data['name']
+    s.cpf = form.cleaned_data['cpf']
+    s.email = form.cleaned_data['email']
+    s.phone = form.cleaned_data['phone']
+    s.save()
 
-    subscription = form.save()
     # notifica o cadastro
-    send_subscription_email(subscription)
-    return HttpResponseRedirect(reverse('subscription:success', args=[ subscription.pk ]))
+    send_subscription_email(s)
+    return HttpResponseRedirect(reverse('subscription:success', args=[ s.pk ]))
 
 def subscribe(request):
     if request.method == 'POST':
